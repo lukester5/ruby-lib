@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "rubylib",
+  "version": "${version}",
+
+  "name": "RubyLib",
+  "description": "Common library mod for all of my mods.",
+  "authors": [
+    "lukester5"
+  ],
+  "contact": {
+    "homepage": "",
+    "sources": ""
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/rubylib/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.lukester.rubylib.RubyLib"
+    ]
+  },
+  "mixins": [
+    "rubylib.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.14.6",
+    "fabric": "*",
+    "minecraft": "~1.19",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
