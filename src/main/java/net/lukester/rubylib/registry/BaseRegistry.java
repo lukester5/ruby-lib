@@ -11,7 +11,6 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
-import net.minecraft.util.Identifier;
 
 public abstract class BaseRegistry<T> {
     private static final List<BaseRegistry<?>> REGISTRIES = Lists.newArrayList();
@@ -33,9 +32,9 @@ public abstract class BaseRegistry<T> {
         return MOD_ID;
     }
 
-    public abstract T register(Identifier id, T obj);
+    public abstract T register(String id, T obj);
 
-    public abstract void registerItem(Identifier id, Item item);
+    public abstract void registerItem(String id, Item item);
 
     public FabricItemSettings makeItemSettings() {
         FabricItemSettings properties = new FabricItemSettings();
