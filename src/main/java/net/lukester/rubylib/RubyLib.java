@@ -10,12 +10,11 @@ public class RubyLib extends RubyModInitializer {
 	public static final String MOD_ID = "rubylib";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
-	public RubyLib() {
-		super(MOD_ID);
-	}
-
 	@Override
 	public void onInitialize() {
 		BaseRegistry.register();
 	}
+	
+
+
 }
