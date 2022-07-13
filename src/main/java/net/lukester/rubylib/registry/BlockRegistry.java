@@ -11,8 +11,12 @@ import net.minecraft.util.registry.Registry;
 
 public class BlockRegistry extends BaseRegistry<Block> {
 
-    protected BlockRegistry(ItemGroup itemGroup) {
-        super(itemGroup);
+    protected BlockRegistry(ItemGroup itemGroup, String modid) {
+        super(itemGroup, modid);
+    }
+
+    public Block register(String id, Block block) {
+        return this.register(new Identifier(this.getModid(), id), block);
     }
 
     @Override
