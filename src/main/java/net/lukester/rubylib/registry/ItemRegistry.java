@@ -20,8 +20,8 @@ import net.minecraft.util.registry.Registry;
 
 public class ItemRegistry extends BaseRegistry<Item> {
 
-    protected ItemRegistry(ItemGroup itemGroup) {
-        super(itemGroup);
+    protected ItemRegistry(ItemGroup itemGroup, String modid) {
+        super(itemGroup, modid);
     }
 
     public Item registerMusicDisc(Identifier id, int power, SoundEvent soundEvent, int lengthInSeconds) {
