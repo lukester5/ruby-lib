@@ -30,10 +30,10 @@ public class BlockRegistry extends BaseRegistry<Block> {
             FlammableBlockRegistry.getDefaultInstance().add(block, 5, 5);
         }
 
-        block = Registry.register(Registry.BLOCK, identifier, block);
+        Block newBlock = Registry.register(Registry.BLOCK, identifier, block);
         getModBlocks(identifier.getNamespace()).add(block);
 
-        return block;
+        return newBlock;
     }
 
     public Block registerBlockOnly(String id, Block block) {
