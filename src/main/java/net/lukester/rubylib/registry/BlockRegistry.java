@@ -18,12 +18,10 @@ public class BlockRegistry extends BaseRegistry<Block> {
         super(itemGroup, modid);
     }
 
-    public Block register(String id, Block block) {
-        return this.register(new Identifier(this.getModId(), id), block);
-    }
 
     @Override
-    public Block register(Identifier id, Block block) {
+    public Block register(String id, Block block) {
+        Identifier identifier = new Identifier(this.getModId(), id);
         BlockItem item = null;
         item = new BlockItem(block, makeItemSettings());
 
@@ -32,31 +30,29 @@ public class BlockRegistry extends BaseRegistry<Block> {
             FlammableBlockRegistry.getDefaultInstance().add(block, 5, 5);
         }
 
-        block = Registry.register(Registry.BLOCK, id, block);
-        getModBlocks(id.getNamespace()).add(block);
+        block = Registry.register(Registry.BLOCK, identifier, block);
+        getModBlocks(identifier.getNamespace()).add(block);
 
         return block;
     }
 
     public Block registerBlockOnly(String id, Block block) {
-        return this.registerBlockOnly(new Identifier(this.getModId(), id), block);
+        Identifier identifier = new Identifier(this.getModId(), id);
+        getModBlocks(identifier.getNamespace()).add(block);
+        return Registry.register(Registry.BLOCK, identifier, block);
     }
 
-    public Block registerBlockOnly(Identifier id, Block block) {
-        getModBlocks(id.getNamespace()).add(block);
-        return Registry.register(Registry.BLOCK, id, block);
-    }
-
-    private Item registerBlockItem(Identifier id, Item item) {
+    private Item registerBlockItem(String id, Item item) {
         registerItem(id, item);
         return item;
     }
 
     @Override
-    public void registerItem(Identifier id, Item item) {
+    public void registerItem(String id, Item item) {
+        Identifier identifier = new Identifier(this.getModId(), id);
         if (item != null && item != Items.AIR) {
-            Registry.register(Registry.ITEM, id, item);
-            getModBlockItems(id.getNamespace()).add(item);
+            Registry.register(Registry.ITEM, identifier, item);
+            getModBlockItems(identifier.getNamespace()).add(item);
         }
     }
     
