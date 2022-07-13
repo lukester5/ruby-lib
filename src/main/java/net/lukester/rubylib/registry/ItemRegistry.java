@@ -24,13 +24,13 @@ public class ItemRegistry extends BaseRegistry<Item> {
         super(itemGroup, modid);
     }
 
-    public Item registerMusicDisc(Identifier id, int power, SoundEvent soundEvent, int lengthInSeconds) {
+    public Item registerMusicDisc(String id, int power, SoundEvent soundEvent, int lengthInSeconds) {
         MusicDiscItem item = new BaseMusicDiscItem(lengthInSeconds, soundEvent, makeItemSettings());
         register(id, item);
         return item;
     }
 
-    public Item registerSpawnEgg(Identifier id, EntityType<? extends MobEntity> type, int background, int dots) {
+    public Item registerSpawnEgg(String id, EntityType<? extends MobEntity> type, int background, int dots) {
         SpawnEggItem item = new SpawnEggItem(type, background, dots, makeItemSettings());
 
         DispenserBehavior behavior = new DispenserBehavior() {
@@ -61,16 +61,17 @@ public class ItemRegistry extends BaseRegistry<Item> {
     }
 
     @Override
-    public Item register(Identifier id, Item item) {
+    public Item register(String id, Item item) {
         registerItem(id, item);
         return item;
     }
 
     @Override
-    public void registerItem(Identifier id, Item item) {
+    public void registerItem(String id, Item item) {
+        Identifier identifier = new Identifier(this.getModId(), id);
         if (item != null && item != Items.AIR) {
-            Registry.register(Registry.ITEM, id, item);
-            getModItems(id.getNamespace()).add(item);
+            Registry.register(Registry.ITEM, identifier, item);
+            getModItems(identifier.getNamespace()).add(item);
         }
     }
 
