@@ -38,6 +38,10 @@ public class BlockRegistry extends BaseRegistry<Block> {
         return block;
     }
 
+    public Block registerBlockOnly(String id, Block block) {
+        return this.registerBlockOnly(new Identifier(this.getModId(), id), block);
+    }
+
     public Block registerBlockOnly(Identifier id, Block block) {
         getModBlocks(id.getNamespace()).add(block);
         return Registry.register(Registry.BLOCK, id, block);
