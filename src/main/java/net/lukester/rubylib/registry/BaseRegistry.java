@@ -21,9 +21,16 @@ public abstract class BaseRegistry<T> {
     
     protected final ItemGroup itemGroup;
 
-    protected BaseRegistry(ItemGroup itemGroup) {
+    private String MOD_ID;
+
+    protected BaseRegistry(ItemGroup itemGroup, String modid) {
         this.itemGroup = itemGroup;
+        this.MOD_ID = modid;
         REGISTRIES.add(this);
+    }
+
+    protected String getModid() {
+        return MOD_ID;
     }
 
     public abstract T register(Identifier id, T obj);
