@@ -3,7 +3,7 @@ package net.lukester.rubylib;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.util.Identifier;
 
-public abstract class RubyModInitializer implements ModInitializer {
+public class RubyModInitializer implements ModInitializer {
     public final static String MOD_ID = "modid";
 
 	@Override
