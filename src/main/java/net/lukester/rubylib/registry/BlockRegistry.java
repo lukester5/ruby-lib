@@ -19,7 +19,7 @@ public class BlockRegistry extends BaseRegistry<Block> {
     }
 
     public Block register(String id, Block block) {
-        return this.register(new Identifier(this.getModid(), id), block);
+        return this.register(new Identifier(this.getModId(), id), block);
     }
 
     @Override

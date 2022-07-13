@@ -29,7 +29,7 @@ public abstract class BaseRegistry<T> {
         REGISTRIES.add(this);
     }
 
-    protected String getModid() {
+    protected String getModId() {
         return MOD_ID;
     }
 
@@ -79,6 +79,7 @@ public abstract class BaseRegistry<T> {
         MOD_BLOCKS.put(modId, modBlocks);
         return modBlocks;
     }
+
 
     public static void register() {
         REGISTRIES.forEach(BaseRegistry::registerInternal);
