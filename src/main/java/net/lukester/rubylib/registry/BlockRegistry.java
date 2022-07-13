@@ -9,6 +9,9 @@ import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
+/*
+ * Registrations
+ */
 public class BlockRegistry extends BaseRegistry<Block> {
 
     protected BlockRegistry(ItemGroup itemGroup, String modid) {
